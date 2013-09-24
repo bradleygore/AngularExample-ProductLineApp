@@ -1,0 +1,50 @@
+<h3 class="pageHeader">Edit Product</h3>
+<section class="pageContent">
+    <form id="editProductForm" name="editProductForm" ng-model="editProduct" novalidate>
+        <div>
+            <div class="formFieldLabel">
+                <label for="name">Name</label>
+                <span class="invalid" ng-show="editProductForm.name.$error.required">*</span>    
+            </div>
+            <div class="formField">
+                <input type="text" name="name" id="name" ng-model="editProduct.name" ng-required="true"/>
+            </div>        
+            <div class="clear"></div>
+        </div>
+        <div>
+            <div class="formFieldLabel">
+                <label for="materials">Materials Cost</label>
+                <span class="invalid" ng-show="editProductForm.rawGoodsCost.$error.required || editProductForm.rawGoodsCost.$error.float">*</span>    
+            </div>
+            <div class="formField">
+                <input type="text" name="materials" id="materials" ng-model="editProduct.rawGoodsCost" data-input-float="2" ng-required="true"/>
+            </div>        
+            <div class="clear"></div>
+        </div>
+        <div>
+            <div class="formFieldLabel">
+                <label for="shipping">Shipping Cost</label>
+                <span class="invalid" ng-show="editProductForm.shippingCost.$error.required || editProductForm.shippingCost.$error.float">*</span>
+            </div>        
+            <div class="formField">
+                <input type="text" name="shipping" id="shipping" ng-model="editProduct.shippingCost" data-input-float="2" ng-required="true"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div>
+            <div class="formFieldLabel">
+                <label for="markup">Markup Amount</label>
+                <span class="invalid" ng-show="editProductForm.markupAmt.$error.required || editProductForm.markupAmt.$error.float">*</span>                
+            </div>
+            <div class="formField">
+                <input type="text" name="markup" id="markup" ng-model="editProduct.markupAmt" data-input-float="2" ng-required="true"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <br>
+        <div class="formBtns">
+            <button type="submit" ng-click="updateProduct(editProduct)" ng-disabled="editProductForm.$invalid">Save</button>
+            <button ng-click="cancel()">Cancel</button>
+        </div>
+    </form>    
+</section>

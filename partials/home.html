@@ -1,0 +1,29 @@
+<h3 class="pageHeader" xmlns="http://www.w3.org/1999/html">Complete Product Line</h3>
+<section class="pageContent" id="productList">
+    <h4>
+        Total Products: {{productLine.products.length}}
+        <button ng-click="goToAddProduct()">Add</button>
+        <button ng-show="productLine.products.length > 0" ng-click="goToDataViz()">Charts</button>
+    </h4>
+    <div ng-repeat="product in productLine.products" class="product">
+        <h5 class="productName">{{product.name}}</h5>
+        <div class="flipper">
+            <div class="front">
+                <ul>
+                    <li><b>Materials</b>: {{product.rawGoodsCost | currency}}</li>
+                    <li><b>Shipping</b>: {{ product.shippingCost | currency }}</li>
+                    <li><b>Markup</b>: {{ product.markupAmt | currency }}</li>
+                </ul>
+            </div>
+            <div class="back">
+                <!--Display links to edit, view charts, and delete the item-->
+                <ul>
+                    <li><button ng-click="goToEditProduct(product)">Edit</button></li>
+                    <li><button ng-click="goToDataViz(product)">View Charts</button></li>
+                    <li><button ng-click="removeProduct(product)">Delete</button></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</section>

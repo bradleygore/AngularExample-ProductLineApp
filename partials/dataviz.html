@@ -1,0 +1,8 @@
+<h3 class="pageHeader">{{titles.main}}</h3>
+<section class="pageContent">
+    <div class="dataViz">
+        <button ng-click="goHome()">Back</button>
+        <div data-chart-donut ng-model="pieChartPoints" data-chart-colors="chartColors"></div>
+        <div data-chart-legend ng-model="pieChartPoints" data-chart-colors="chartColors" data-value-filter="currencyFilter" data-show-percentage="true"></div>
+    </div>
+</section>
